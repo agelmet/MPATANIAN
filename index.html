@@ -20,14 +20,14 @@
             theme: {
                 extend: {
                     colors: {
-                        calm: {
-                            50: '#faf9f8',
-                            100: '#f3f1ed',
-                            200: '#e5e1d8',
-                            300: '#d1c7bd', // Soft beige/taupe
-                            400: '#a9927d', // Warm taupe
-                            800: '#3a3f47', // Slate grey
-                            900: '#23262b', // Deep charcoal
+                        earth: {
+                            50: '#fdfcfb',  // Pearl / Alabaster
+                            100: '#f5f2ed', // Off-white sand
+                            200: '#e8e1d7', // Light warm sand
+                            300: '#cec1ad', // Soft taupe
+                            400: '#a29177', // Warm bronze / muted gold
+                            800: '#43453b', // Dark olive grey
+                            900: '#2d2f28', // Deepest forest/olive brown (Earthy black)
                         }
                     },
                     fontFamily: {
@@ -36,9 +36,9 @@
                         logo: ['Playfair Display', 'serif'],
                     },
                     boxShadow: {
-                        'elegant': '0 20px 40px -15px rgba(35, 38, 43, 0.08)',
-                        'float': '0 30px 60px -20px rgba(35, 38, 43, 0.15)',
-                        'glow': '0 0 40px rgba(169, 146, 125, 0.2)',
+                        'elegant': '0 20px 40px -15px rgba(45, 47, 40, 0.1)',
+                        'float': '0 30px 60px -20px rgba(45, 47, 40, 0.2)',
+                        'glow': '0 0 40px rgba(162, 145, 119, 0.25)',
                     },
                     animation: {
                         'kenburns': 'kenburns 25s ease-out both',
@@ -66,11 +66,11 @@
     </script>
 
     <style>
-        body { background-color: #faf9f8; color: #3a3f47; overflow-x: hidden; }
+        body { background-color: #fdfcfb; color: #43453b; overflow-x: hidden; }
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #faf9f8; }
-        ::-webkit-scrollbar-thumb { background: #d1c7bd; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #a9927d; }
+        ::-webkit-scrollbar-track { background: #fdfcfb; }
+        ::-webkit-scrollbar-thumb { background: #cec1ad; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #a29177; }
 
         /* Enhanced Reveal Logic with Blur and Scaling */
         .reveal { 
@@ -95,19 +95,19 @@
         #lightbox.active img { transform: scale(1); }
 
         /* Glass / Nav */
-        .glass-nav { background: rgba(250, 249, 248, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(209, 199, 189, 0.2); }
+        .glass-nav { background: rgba(253, 252, 251, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(206, 193, 173, 0.2); }
         
         /* Modern Hover Effects */
         .hover-lift { transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
-        .hover-lift:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -15px rgba(35, 38, 43, 0.15); }
+        .hover-lift:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -15px rgba(45, 47, 40, 0.15); }
         
         .btn-outline { position: relative; overflow: hidden; transition: color 0.4s ease; }
         .btn-outline::before {
             content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; 
-            background: #faf9f8; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); z-index: -1;
+            background: #fdfcfb; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); z-index: -1;
         }
         .btn-outline:hover::before { transform: translateX(100%); }
-        .btn-outline:hover { color: #23262b; border-color: #faf9f8; }
+        .btn-outline:hover { color: #2d2f28; border-color: #fdfcfb; }
 
         /* Gradient Masking for Reviews Marquee */
         .mask-vertical {
@@ -117,7 +117,7 @@
 
         /* Glass Panel */
         .glass-panel {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.04);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -126,59 +126,59 @@
 
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="antialiased selection:bg-calm-300 selection:text-calm-900">
+<body class="antialiased selection:bg-earth-300 selection:text-earth-900">
 
     <nav class="fixed w-full z-50 transition-all duration-700 py-6" id="navbar">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <a href="#" class="font-logo text-2xl md:text-3xl font-medium text-calm-900 tracking-wide hover:opacity-70 transition-opacity drop-shadow-sm flex flex-col group">
+            <a href="#" class="font-logo text-2xl md:text-3xl font-medium text-earth-900 tracking-wide hover:opacity-70 transition-opacity drop-shadow-sm flex flex-col group">
                 <i>Τατιάνα Μπατανιάν</i>
-                <span class="font-sans text-[0.6rem] uppercase tracking-[0.2em] text-calm-400 not-italic mt-1 group-hover:text-calm-800 transition-colors">Συμβουλος Ψυχικης Υγειας</span>
+                <span class="font-sans text-[0.6rem] uppercase tracking-[0.2em] text-earth-400 not-italic mt-1 group-hover:text-earth-800 transition-colors">Συμβουλος Ψυχικης Υγειας</span>
             </a>
             
             <div class="hidden md:flex items-center space-x-10">
-                <a href="#about" class="text-xs font-medium tracking-[0.15em] hover:text-calm-400 transition-colors uppercase">Η Φιλοσοφία</a>
-                <a href="#services" class="text-xs font-medium tracking-[0.15em] hover:text-calm-400 transition-colors uppercase">Υπηρεσίες</a>
-                <a href="#space" class="text-xs font-medium tracking-[0.15em] hover:text-calm-400 transition-colors uppercase">Ο Χώρος</a>
-                <a href="#reviews" class="text-xs font-medium tracking-[0.15em] hover:text-calm-400 transition-colors uppercase">Εμπειρίες</a>
-                <a href="#contact" class="px-8 py-3 bg-calm-900 text-calm-50 rounded-none text-xs font-medium uppercase tracking-[0.2em] hover:bg-calm-400 transition-all duration-500 hover:shadow-glow">Κλειστε Ραντεβου</a>
+                <a href="#about" class="text-xs font-medium tracking-[0.15em] hover:text-earth-400 transition-colors uppercase">Η Φιλοσοφία</a>
+                <a href="#services" class="text-xs font-medium tracking-[0.15em] hover:text-earth-400 transition-colors uppercase">Υπηρεσίες</a>
+                <a href="#space" class="text-xs font-medium tracking-[0.15em] hover:text-earth-400 transition-colors uppercase">Ο Χώρος</a>
+                <a href="#reviews" class="text-xs font-medium tracking-[0.15em] hover:text-earth-400 transition-colors uppercase">Εμπειρίες</a>
+                <a href="#contact" class="px-8 py-3 bg-earth-900 text-earth-50 rounded-none text-xs font-medium uppercase tracking-[0.2em] hover:bg-earth-400 transition-all duration-500 hover:shadow-glow">Κλειστε Ραντεβου</a>
             </div>
 
-            <button class="md:hidden text-calm-900 focus:outline-none" id="mobile-menu-btn">
+            <button class="md:hidden text-earth-900 focus:outline-none" id="mobile-menu-btn">
                 <i data-lucide="menu" class="w-7 h-7"></i>
             </button>
         </div>
         
-        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-calm-50/95 backdrop-blur-xl shadow-elegant hidden flex-col items-center py-10 space-y-8 border-t border-calm-200">
+        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-earth-50/95 backdrop-blur-xl shadow-elegant hidden flex-col items-center py-10 space-y-8 border-t border-earth-200">
             <a href="#about" class="text-sm tracking-widest uppercase font-medium mobile-link">Η Φιλοσοφία</a>
             <a href="#services" class="text-sm tracking-widest uppercase font-medium mobile-link">Υπηρεσίες</a>
             <a href="#space" class="text-sm tracking-widest uppercase font-medium mobile-link">Ο Χώρος</a>
             <a href="#reviews" class="text-sm tracking-widest uppercase font-medium mobile-link">Εμπειρίες</a>
-            <a href="#contact" class="px-10 py-4 bg-calm-900 text-calm-50 rounded-none text-xs uppercase tracking-[0.2em] mobile-link">Κλειστε Ραντεβου</a>
+            <a href="#contact" class="px-10 py-4 bg-earth-900 text-earth-50 rounded-none text-xs uppercase tracking-[0.2em] mobile-link">Κλειστε Ραντεβου</a>
         </div>
     </nav>
 
-    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-calm-900">
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-earth-900">
         <div class="absolute inset-0 z-0">
-            <div class="w-full h-full bg-cover bg-center animate-kenburns origin-center opacity-80" style="background-image: url('https://github.com/agelmet/ZERVA/blob/main/s2.jpg?raw=true');"></div>
-            <div class="absolute inset-0 bg-calm-900/30"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-calm-50 via-calm-50/10 to-transparent"></div>
+            <div class="w-full h-full bg-cover bg-center animate-kenburns origin-center opacity-85" style="background-image: url('https://github.com/agelmet/ZERVA/blob/main/s2.jpg?raw=true');"></div>
+            <div class="absolute inset-0 bg-earth-900/40"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-earth-50 via-earth-50/5 to-transparent"></div>
         </div>
 
         <div class="relative z-10 text-center px-6 max-w-3xl mx-auto flex flex-col items-center mt-16">
-            <span class="block text-white/80 text-[0.65rem] md:text-xs tracking-[0.4em] uppercase mb-8 reveal">Συστημικη Συμβουλευτικη & Αυτογνωσια</span>
+            <span class="block text-white/90 text-[0.65rem] md:text-xs tracking-[0.4em] uppercase mb-8 reveal">Συστημικη Συμβουλευτικη & Αυτογνωσια</span>
             <h1 class="text-3xl md:text-5xl font-serif text-white leading-tight mb-8 drop-shadow-lg reveal delay-100 font-light tracking-wide">
                 Καθαρότητα Σκέψης <br>
-                <i class="font-logo text-calm-200 text-4xl md:text-6xl block mt-3">Ουσιαστική Σύνδεση</i>
+                <i class="font-logo text-earth-200 text-4xl md:text-6xl block mt-3 drop-shadow-md">Ουσιαστική Σύνδεση</i>
             </h1>
-            <div class="w-px h-20 bg-gradient-to-b from-calm-200 to-transparent mb-12 reveal delay-200"></div>
-            <a href="#contact" class="btn-outline px-10 py-4 border border-white/40 text-white rounded-none tracking-[0.2em] uppercase text-xs reveal delay-300 backdrop-blur-sm shadow-lg">
+            <div class="w-px h-20 bg-gradient-to-b from-earth-200 to-transparent mb-12 reveal delay-200"></div>
+            <a href="#contact" class="btn-outline px-10 py-4 border border-white/50 text-white rounded-none tracking-[0.2em] uppercase text-xs reveal delay-300 backdrop-blur-sm shadow-lg">
                 Καντε το Πρωτο Βημα
             </a>
         </div>
     </section>
 
-    <section id="about" class="py-32 px-6 bg-calm-50 relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-[40vw] h-[40vw] bg-calm-200/40 rounded-full blur-[100px] mix-blend-multiply animate-float-slow pointer-events-none z-0"></div>
+    <section id="about" class="py-32 px-6 bg-earth-50 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-[40vw] h-[40vw] bg-earth-200/50 rounded-full blur-[100px] mix-blend-multiply animate-float-slow pointer-events-none z-0"></div>
 
         <div class="max-w-7xl mx-auto relative z-10">
             <div class="grid lg:grid-cols-12 gap-16 items-center">
@@ -186,14 +186,14 @@
                 <div class="lg:col-span-5 relative reveal">
                     <div class="aspect-[3/4] overflow-hidden rounded-sm shadow-float relative animate-float">
                         <img src="https://cdn.doctoranytime.gr/profileimages/e28f5501-8e27-4f3a-ba99-27b40ebc1f68.webp" alt="Τατιάνα Μπατανιάν" class="w-full h-full object-cover">
-                        <div class="absolute -inset-4 border border-calm-300/40 rounded-sm pointer-events-none z-[-1] transition-transform duration-1000"></div>
+                        <div class="absolute -inset-4 border border-earth-300/50 rounded-sm pointer-events-none z-[-1] transition-transform duration-1000"></div>
                     </div>
                 </div>
 
                 <div class="lg:col-span-7 reveal delay-100">
-                    <h2 class="text-3xl md:text-4xl font-serif text-calm-900 mb-8 font-light leading-snug">Η Τατιάνα Μπατανιάν είναι Σύμβουλος Ψυχικής Υγείας και Ειδικευόμενη Ψυχοθεραπεύτρια στη Γλυφάδα.</h2>
+                    <h2 class="text-3xl md:text-4xl font-serif text-earth-900 mb-8 font-light leading-snug">Η Τατιάνα Μπατανιάν είναι Σύμβουλος Ψυχικής Υγείας και Ειδικευόμενη Ψυχοθεραπεύτρια στη Γλυφάδα.</h2>
                     
-                    <div class="space-y-6 text-calm-800 font-light leading-relaxed">
+                    <div class="space-y-6 text-earth-800 font-light leading-relaxed">
                         <p class="text-lg">
                             Διαθέτει ένα ευρύ και ανθρωποκεντρικό ακαδημαϊκό υπόβαθρο: σπούδασε Κοινωνιολογία στο Πανεπιστήμιο της Κρήτης, αποκτώντας τη δεξιότητα να κατανοεί τον άνθρωπο όχι ως απομονωμένη μονάδα, αλλά ως μέρος ενός ευρύτερου κοινωνικού συνόλου.
                         </p>
@@ -209,54 +209,54 @@
 
             <div class="mt-40">
                 <div class="text-center mb-20 reveal">
-                    <span class="text-calm-400 text-xs tracking-[0.2em] uppercase">Ο Χαρτης της Αλλαγης Σας</span>
-                    <h3 class="text-3xl md:text-4xl font-serif text-calm-900 mt-4 font-light">Η Θεραπευτική μου Φιλοσοφία</h3>
+                    <span class="text-earth-400 text-xs tracking-[0.2em] uppercase font-bold">Ο Χαρτης της Αλλαγης Σας</span>
+                    <h3 class="text-3xl md:text-4xl font-serif text-earth-900 mt-4 font-light">Η Θεραπευτική μου Φιλοσοφία</h3>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-white p-12 shadow-elegant border border-calm-100 reveal hover-lift group relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-calm-100 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-700 opacity-50"></div>
-                        <i data-lucide="network" class="w-8 h-8 text-calm-400 mb-8 group-hover:text-calm-900 transition-colors"></i>
-                        <h4 class="text-xl font-serif text-calm-900 mb-4">Η Κοινωνιολογική Οπτική</h4>
-                        <p class="text-sm text-calm-800 leading-relaxed font-light">Οι σπουδές μου στην Κοινωνιολογία μού επιτρέπουν να βλέπω τη "μεγάλη εικόνα". Κατανοώ ότι τα προβλήματα που βιώνετε δεν αποτελούν δική σας, ατομική «αποτυχία», αλλά συχνά είναι αποτέλεσμα των πιέσεων του περιβάλλοντος.</p>
+                    <div class="bg-white p-12 shadow-elegant border border-earth-100 reveal hover-lift group relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-earth-100 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-700 opacity-60"></div>
+                        <i data-lucide="network" class="w-8 h-8 text-earth-400 mb-8 group-hover:text-earth-900 transition-colors"></i>
+                        <h4 class="text-xl font-serif text-earth-900 mb-4">Η Κοινωνιολογική Οπτική</h4>
+                        <p class="text-sm text-earth-800 leading-relaxed font-light">Οι σπουδές μου στην Κοινωνιολογία μού επιτρέπουν να βλέπω τη "μεγάλη εικόνα". Κατανοώ ότι τα προβλήματα που βιώνετε δεν αποτελούν δική σας, ατομική «αποτυχία», αλλά συχνά είναι αποτέλεσμα των πιέσεων του περιβάλλοντος.</p>
                     </div>
                     
-                    <div class="bg-white p-12 shadow-elegant border border-calm-100 reveal delay-100 hover-lift group relative overflow-hidden md:translate-y-8">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-calm-100 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-700 opacity-50"></div>
-                        <i data-lucide="git-merge" class="w-8 h-8 text-calm-400 mb-8 group-hover:text-calm-900 transition-colors"></i>
-                        <h4 class="text-xl font-serif text-calm-900 mb-4">Συστημική Σκέψη & Ευελιξία</h4>
-                        <p class="text-sm text-calm-800 leading-relaxed font-light">Βλέπω τον άνθρωπο ως μέρος ενός συστήματος. Δανείζομαι τεχνικές από τη CBT και τη Gestalt (για εστίαση στο συναίσθημα και το "εδώ και τώρα"), δημιουργώντας μια θεραπεία κομμένη και ραμμένη στα μέτρα σας.</p>
+                    <div class="bg-white p-12 shadow-elegant border border-earth-100 reveal delay-100 hover-lift group relative overflow-hidden md:translate-y-8">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-earth-100 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-700 opacity-60"></div>
+                        <i data-lucide="git-merge" class="w-8 h-8 text-earth-400 mb-8 group-hover:text-earth-900 transition-colors"></i>
+                        <h4 class="text-xl font-serif text-earth-900 mb-4">Συστημική Σκέψη & Ευελιξία</h4>
+                        <p class="text-sm text-earth-800 leading-relaxed font-light">Βλέπω τον άνθρωπο ως μέρος ενός συστήματος. Δανείζομαι τεχνικές από τη CBT και τη Gestalt (για εστίαση στο συναίσθημα και το "εδώ και τώρα"), δημιουργώντας μια θεραπεία κομμένη και ραμμένη στα μέτρα σας.</p>
                     </div>
 
-                    <div class="bg-white p-12 shadow-elegant border border-calm-100 reveal hover-lift group relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-calm-100 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-700 opacity-50"></div>
-                        <i data-lucide="eye" class="w-8 h-8 text-calm-400 mb-8 group-hover:text-calm-900 transition-colors"></i>
-                        <h4 class="text-xl font-serif text-calm-900 mb-4">Η Δική μου Διαδρομή</h4>
-                        <p class="text-sm text-calm-800 leading-relaxed font-light">Η συνεχής προσωπική μου ψυχοθεραπεία και η κλινική μου εποπτεία αποτελούν τον ακρογωνιαίο λίθο του επαγγελματισμού μου. Σας εγγυώμαι έναν χώρο καθαρό από τις δικές μου προβολές.</p>
+                    <div class="bg-white p-12 shadow-elegant border border-earth-100 reveal hover-lift group relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-earth-100 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-700 opacity-60"></div>
+                        <i data-lucide="eye" class="w-8 h-8 text-earth-400 mb-8 group-hover:text-earth-900 transition-colors"></i>
+                        <h4 class="text-xl font-serif text-earth-900 mb-4">Η Δική μου Διαδρομή</h4>
+                        <p class="text-sm text-earth-800 leading-relaxed font-light">Η συνεχής προσωπική μου ψυχοθεραπεία και η κλινική μου εποπτεία αποτελούν τον ακρογωνιαίο λίθο του επαγγελματισμού μου. Σας εγγυώμαι έναν χώρο καθαρό από τις δικές μου προβολές.</p>
                     </div>
 
-                    <div class="bg-white p-12 shadow-elegant border border-calm-100 reveal delay-100 hover-lift group relative overflow-hidden md:translate-y-8">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-calm-100 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-700 opacity-50"></div>
-                        <i data-lucide="heart-handshake" class="w-8 h-8 text-calm-400 mb-8 group-hover:text-calm-900 transition-colors"></i>
-                        <h4 class="text-xl font-serif text-calm-900 mb-4">Η Σχέση ως Εργαλείο Ίασης</h4>
-                        <p class="text-sm text-calm-800 leading-relaxed font-light">Πάνω από κάθε πτυχίο, το πιο ισχυρό εργαλείο αλλαγής είναι η μεταξύ μας εμπιστοσύνη. Στόχος μου είναι να νιώσετε άμεσα πως βρίσκεστε σε ένα περιβάλλον απόλυτης αποδοχής.</p>
+                    <div class="bg-white p-12 shadow-elegant border border-earth-100 reveal delay-100 hover-lift group relative overflow-hidden md:translate-y-8">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-earth-100 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-700 opacity-60"></div>
+                        <i data-lucide="heart-handshake" class="w-8 h-8 text-earth-400 mb-8 group-hover:text-earth-900 transition-colors"></i>
+                        <h4 class="text-xl font-serif text-earth-900 mb-4">Η Σχέση ως Εργαλείο Ίασης</h4>
+                        <p class="text-sm text-earth-800 leading-relaxed font-light">Πάνω από κάθε πτυχίο, το πιο ισχυρό εργαλείο αλλαγής είναι η μεταξύ μας εμπιστοσύνη. Στόχος μου είναι να νιώσετε άμεσα πως βρίσκεστε σε ένα περιβάλλον απόλυτης αποδοχής.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="py-32 px-6 bg-calm-900 text-calm-50 relative overflow-hidden">
-        <div class="absolute bottom-0 left-[-10%] w-[50vw] h-[50vw] bg-calm-400/10 rounded-full blur-[150px] animate-float"></div>
+    <section id="services" class="py-32 px-6 bg-earth-900 text-earth-50 relative overflow-hidden">
+        <div class="absolute bottom-0 left-[-10%] w-[50vw] h-[50vw] bg-earth-400/10 rounded-full blur-[150px] animate-float pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto relative z-10">
             <div class="mb-20 md:flex md:justify-between md:items-end reveal">
                 <div class="max-w-2xl">
-                    <span class="text-calm-400 text-xs tracking-[0.2em] uppercase">Εξειδικευμενες Προσεγγισεις</span>
+                    <span class="text-earth-400 text-xs tracking-[0.2em] uppercase font-bold">Εξειδικευμενες Προσεγγισεις</span>
                     <h2 class="text-4xl md:text-5xl font-serif mt-4 font-light text-white">Οι Υπηρεσίες</h2>
                 </div>
                 <div class="mt-8 md:mt-0">
-                    <a href="#contact" class="text-xs tracking-[0.15em] uppercase hover:text-white text-calm-300 transition-colors border-b border-calm-400 pb-2 flex items-center gap-2 group">
+                    <a href="#contact" class="text-xs tracking-[0.15em] uppercase hover:text-white text-earth-300 transition-colors border-b border-earth-400 pb-2 flex items-center gap-2 group">
                         Προγραμματισμός Συνεδρίας 
                         <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
                     </a>
@@ -266,90 +266,90 @@
             <div class="grid lg:grid-cols-2 gap-8">
                 <div class="p-12 border border-white/10 glass-panel group hover:bg-white/5 transition-all duration-500 reveal hover:-translate-y-1">
                     <div class="flex justify-between items-start mb-8">
-                        <i data-lucide="users" class="w-8 h-8 text-calm-300 group-hover:scale-110 transition-transform duration-500"></i>
-                        <span class="text-[0.65rem] tracking-[0.2em] uppercase text-calm-400 bg-white/5 px-3 py-1 rounded-full">Συστημικη</span>
+                        <i data-lucide="users" class="w-8 h-8 text-earth-300 group-hover:scale-110 transition-transform duration-500"></i>
+                        <span class="text-[0.65rem] tracking-[0.2em] uppercase text-earth-300 bg-white/5 px-3 py-1 rounded-full border border-earth-300/20">Συστημικη</span>
                     </div>
                     <h3 class="text-2xl font-serif mb-4 text-white">Διαπροσωπικές Σχέσεις & Συστημική Συμβουλευτική</h3>
-                    <div class="w-10 h-px bg-calm-400/50 mb-6 group-hover:w-full transition-all duration-700"></div>
-                    <p class="text-calm-200 font-light text-sm leading-relaxed mb-8 opacity-80 group-hover:opacity-100 transition-opacity">
+                    <div class="w-10 h-px bg-earth-400/50 mb-6 group-hover:w-full transition-all duration-700"></div>
+                    <p class="text-earth-200 font-light text-sm leading-relaxed mb-8 opacity-80 group-hover:opacity-100 transition-opacity">
                         Η Συστημική προσέγγιση εστιάζει στις αλληλεπιδράσεις. Οι δυσκολίες στις σχέσεις μας (συντροφικές, οικογενειακές, επαγγελματικές) συχνά πηγάζουν από μοτίβα επικοινωνίας του παρελθόντος. Δουλεύουμε μαζί για να καλλιεργήσουμε πιο υγιείς, αυθεντικούς δεσμούς.
                     </p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="text-[0.65rem] uppercase tracking-wider text-calm-400 border border-calm-400/30 px-3 py-1">Προσωπική Ανάπτυξη</span>
-                        <span class="text-[0.65rem] uppercase tracking-wider text-calm-400 border border-calm-400/30 px-3 py-1">Προβλήματα Σχέσεων</span>
+                        <span class="text-[0.65rem] uppercase tracking-wider text-earth-300 border border-earth-400/30 px-3 py-1">Προσωπική Ανάπτυξη</span>
+                        <span class="text-[0.65rem] uppercase tracking-wider text-earth-300 border border-earth-400/30 px-3 py-1">Προβλήματα Σχέσεων</span>
                     </div>
                 </div>
 
                 <div class="p-12 border border-white/10 glass-panel group hover:bg-white/5 transition-all duration-500 reveal delay-100 hover:-translate-y-1">
                     <div class="flex justify-between items-start mb-8">
-                        <i data-lucide="activity" class="w-8 h-8 text-calm-300 group-hover:scale-110 transition-transform duration-500"></i>
-                        <span class="text-[0.65rem] tracking-[0.2em] uppercase text-calm-400 bg-white/5 px-3 py-1 rounded-full">Κρισεις</span>
+                        <i data-lucide="activity" class="w-8 h-8 text-earth-300 group-hover:scale-110 transition-transform duration-500"></i>
+                        <span class="text-[0.65rem] tracking-[0.2em] uppercase text-earth-300 bg-white/5 px-3 py-1 rounded-full border border-earth-300/20">Κρισεις</span>
                     </div>
                     <h3 class="text-2xl font-serif mb-4 text-white">Διαχείριση Άγχους, Φοβιών & Ψυχοσωματικών</h3>
-                    <div class="w-10 h-px bg-calm-400/50 mb-6 group-hover:w-full transition-all duration-700"></div>
-                    <p class="text-calm-200 font-light text-sm leading-relaxed mb-8 opacity-80 group-hover:opacity-100 transition-opacity">
+                    <div class="w-10 h-px bg-earth-400/50 mb-6 group-hover:w-full transition-all duration-700"></div>
+                    <p class="text-earth-200 font-light text-sm leading-relaxed mb-8 opacity-80 group-hover:opacity-100 transition-opacity">
                         Όταν το άγχος παραμένει ανείπωτο, το σώμα μιλάει. Συνδυάζοντας τη συστημική ματιά με τεχνικές CBT και Gestalt, εντοπίζουμε τις ρίζες του χρόνιου στρες. Μαθαίνετε πρακτικούς τρόπους για να αποφορτίζετε το νευρικό σας σύστημα.
                     </p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="text-[0.65rem] uppercase tracking-wider text-calm-400 border border-calm-400/30 px-3 py-1">Άγχος & Στρες</span>
-                        <span class="text-[0.65rem] uppercase tracking-wider text-calm-400 border border-calm-400/30 px-3 py-1">Ψυχοσωματικά (50')</span>
+                        <span class="text-[0.65rem] uppercase tracking-wider text-earth-300 border border-earth-400/30 px-3 py-1">Άγχος & Στρες</span>
+                        <span class="text-[0.65rem] uppercase tracking-wider text-earth-300 border border-earth-400/30 px-3 py-1">Ψυχοσωματικά (50')</span>
                     </div>
                 </div>
 
                 <div class="p-12 border border-white/10 glass-panel group hover:bg-white/5 transition-all duration-500 reveal hover:-translate-y-1">
                     <div class="flex justify-between items-start mb-8">
-                        <i data-lucide="compass" class="w-8 h-8 text-calm-300 group-hover:scale-110 transition-transform duration-500"></i>
-                        <span class="text-[0.65rem] tracking-[0.2em] uppercase text-calm-400 bg-white/5 px-3 py-1 rounded-full">Αναπτυξη</span>
+                        <i data-lucide="compass" class="w-8 h-8 text-earth-300 group-hover:scale-110 transition-transform duration-500"></i>
+                        <span class="text-[0.65rem] tracking-[0.2em] uppercase text-earth-300 bg-white/5 px-3 py-1 rounded-full border border-earth-300/20">Αναπτυξη</span>
                     </div>
                     <h3 class="text-2xl font-serif mb-4 text-white">Αυτοβελτίωση, Πένθος & Επαγγελματικός Προσανατολισμός</h3>
-                    <div class="w-10 h-px bg-calm-400/50 mb-6 group-hover:w-full transition-all duration-700"></div>
-                    <p class="text-calm-200 font-light text-sm leading-relaxed mb-8 opacity-80 group-hover:opacity-100 transition-opacity">
+                    <div class="w-10 h-px bg-earth-400/50 mb-6 group-hover:w-full transition-all duration-700"></div>
+                    <p class="text-earth-200 font-light text-sm leading-relaxed mb-8 opacity-80 group-hover:opacity-100 transition-opacity">
                         Εξειδικευμένη συμβουλευτική για τη διαχείριση της απώλειας σε ένα απόλυτα ζεστό περιβάλλον. Παράλληλα, προσφέρεται καθοδήγηση για θέματα καριέρας, βοηθώντας σας να πάρετε αποφάσεις που ευθυγραμμίζονται με τις αξίες σας.
                     </p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="text-[0.65rem] uppercase tracking-wider text-calm-400 border border-calm-400/30 px-3 py-1">Διαχείριση Πένθους</span>
-                        <span class="text-[0.65rem] uppercase tracking-wider text-calm-400 border border-calm-400/30 px-3 py-1">Καριέρα</span>
+                        <span class="text-[0.65rem] uppercase tracking-wider text-earth-300 border border-earth-400/30 px-3 py-1">Διαχείριση Πένθους</span>
+                        <span class="text-[0.65rem] uppercase tracking-wider text-earth-300 border border-earth-400/30 px-3 py-1">Καριέρα</span>
                     </div>
                 </div>
 
                 <div class="p-12 border border-white/10 glass-panel group hover:bg-white/5 transition-all duration-500 reveal delay-100 hover:-translate-y-1">
                     <div class="flex justify-between items-start mb-8">
-                        <i data-lucide="monitor-smartphone" class="w-8 h-8 text-calm-300 group-hover:scale-110 transition-transform duration-500"></i>
-                        <span class="text-[0.65rem] tracking-[0.2em] uppercase text-calm-400 bg-white/5 px-3 py-1 rounded-full">Προσβαση</span>
+                        <i data-lucide="monitor-smartphone" class="w-8 h-8 text-earth-300 group-hover:scale-110 transition-transform duration-500"></i>
+                        <span class="text-[0.65rem] tracking-[0.2em] uppercase text-earth-300 bg-white/5 px-3 py-1 rounded-full border border-earth-300/20">Προσβαση</span>
                     </div>
                     <h3 class="text-2xl font-serif mb-4 text-white">Συνεδρίες στη Γλυφάδα & Διαδικτυακά (Online)</h3>
-                    <div class="w-10 h-px bg-calm-400/50 mb-6 group-hover:w-full transition-all duration-700"></div>
-                    <p class="text-calm-200 font-light text-sm leading-relaxed mb-8 opacity-80 group-hover:opacity-100 transition-opacity">
+                    <div class="w-10 h-px bg-earth-400/50 mb-6 group-hover:w-full transition-all duration-700"></div>
+                    <p class="text-earth-200 font-light text-sm leading-relaxed mb-8 opacity-80 group-hover:opacity-100 transition-opacity">
                         Προσαρμογή στις απαιτήσεις του σύγχρονου τρόπου ζωής. Οι συνεδρίες διάρκειας 50 λεπτών πραγματοποιούνται είτε δια ζώσης στον φιλόξενο χώρο μας στη Γλυφάδα, είτε εξ αποστάσεως (online), με απόλυτη εχεμύθεια.
                     </p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="text-[0.65rem] uppercase tracking-wider text-calm-400 border border-calm-400/30 px-3 py-1">Δια Ζώσης Γλυφάδα</span>
-                        <span class="text-[0.65rem] uppercase tracking-wider text-calm-400 border border-calm-400/30 px-3 py-1">Online Video</span>
+                        <span class="text-[0.65rem] uppercase tracking-wider text-earth-300 border border-earth-400/30 px-3 py-1">Δια Ζώσης Γλυφάδα</span>
+                        <span class="text-[0.65rem] uppercase tracking-wider text-earth-300 border border-earth-400/30 px-3 py-1">Online Video</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="space" class="py-40 px-6 bg-calm-50">
+    <section id="space" class="py-40 px-6 bg-earth-50">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-24 reveal">
-                <span class="text-calm-400 text-xs tracking-[0.2em] uppercase">Γλυφαδα, Αττικη</span>
-                <h2 class="text-4xl md:text-5xl font-serif text-calm-900 mt-4 font-light">Ο Χώρος Μας</h2>
-                <div class="w-px h-12 bg-calm-300 mx-auto mt-8 mb-6"></div>
-                <p class="text-calm-800 max-w-2xl mx-auto font-light leading-relaxed text-lg">Ένα περιβάλλον σχεδιασμένο με γνώμονα την ηρεμία. Κάθε λεπτομέρεια του χώρου στοχεύει στο να σας προσφέρει ασφάλεια, ζεστασιά και απόλυτη ιδιωτικότητα.</p>
+                <span class="text-earth-400 text-xs tracking-[0.2em] uppercase font-bold">Γλυφαδα, Αττικη</span>
+                <h2 class="text-4xl md:text-5xl font-serif text-earth-900 mt-4 font-light">Ο Χώρος Μας</h2>
+                <div class="w-px h-12 bg-earth-300 mx-auto mt-8 mb-6"></div>
+                <p class="text-earth-800 max-w-2xl mx-auto font-light leading-relaxed text-lg">Ένα περιβάλλον σχεδιασμένο με γνώμονα την ηρεμία. Κάθε λεπτομέρεια του χώρου στοχεύει στο να σας προσφέρει ασφάλεια, ζεστασιά και απόλυτη ιδιωτικότητα.</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                 <div class="group relative overflow-hidden shadow-float rounded-sm reveal cursor-zoom-in" onclick="openLightbox('https://github.com/agelmet/ZERVA/blob/main/s2.jpg?raw=true')">
                     <img src="https://github.com/agelmet/ZERVA/blob/main/s2.jpg?raw=true" alt="Χώρος Γραφείου 1" class="w-full h-auto object-cover transition-transform duration-[1.5s] group-hover:scale-110 opacity-95 group-hover:opacity-100">
-                    <div class="absolute inset-0 bg-calm-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center">
+                    <div class="absolute inset-0 bg-earth-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center">
                         <i data-lucide="plus" class="w-10 h-10 text-white drop-shadow-md"></i>
                     </div>
                 </div>
                 <div class="group relative overflow-hidden shadow-float rounded-sm reveal delay-200 cursor-zoom-in md:mt-24" onclick="openLightbox('https://github.com/agelmet/ZERVA/blob/main/s3.jpg?raw=true')">
                     <img src="https://github.com/agelmet/ZERVA/blob/main/s3.jpg?raw=true" alt="Χώρος Γραφείου 2" class="w-full h-auto object-cover transition-transform duration-[1.5s] group-hover:scale-110 opacity-95 group-hover:opacity-100">
-                    <div class="absolute inset-0 bg-calm-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center">
+                    <div class="absolute inset-0 bg-earth-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center">
                         <i data-lucide="plus" class="w-10 h-10 text-white drop-shadow-md"></i>
                     </div>
                 </div>
@@ -357,26 +357,26 @@
         </div>
     </section>
 
-    <div id="lightbox" class="fixed inset-0 z-[100] bg-calm-900/95 flex items-center justify-center cursor-zoom-out" onclick="closeLightbox()">
-        <button class="absolute top-8 right-8 text-calm-300 hover:text-white transition-colors z-50">
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-earth-900/95 flex items-center justify-center cursor-zoom-out" onclick="closeLightbox()">
+        <button class="absolute top-8 right-8 text-earth-300 hover:text-white transition-colors z-50">
             <i data-lucide="x" class="w-10 h-10"></i>
         </button>
         <img id="lightbox-img" src="" alt="Full Screen Image" class="max-w-[95vw] max-h-[95vh] object-contain shadow-2xl cursor-default" onclick="event.stopPropagation()">
     </div>
 
-    <section id="reviews" class="py-32 bg-calm-900 text-calm-50 overflow-hidden relative border-t border-white/5">
-        <div class="absolute top-[20%] right-[-10%] w-[50vw] h-[50vw] bg-calm-800/40 rounded-full blur-[120px] mix-blend-screen animate-float pointer-events-none"></div>
+    <section id="reviews" class="py-32 bg-earth-900 text-earth-50 overflow-hidden relative border-t border-white/5">
+        <div class="absolute top-[20%] right-[-10%] w-[50vw] h-[50vw] bg-earth-800/60 rounded-full blur-[140px] mix-blend-screen animate-float pointer-events-none"></div>
         
         <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-16 items-start relative z-10">
             
             <div class="lg:col-span-5 lg:sticky top-32 reveal">
-                <span class="text-calm-400 text-xs tracking-[0.2em] uppercase">Η Φωνη των Θεραπευομενων</span>
-                <h2 class="text-4xl md:text-6xl font-serif text-white mt-4 font-light leading-tight mb-8">Εμπειρίες<br><i class="text-calm-300">Αλλαγής</i></h2>
-                <div class="w-12 h-px bg-calm-400/50 mb-8"></div>
-                <p class="text-calm-200 font-light leading-relaxed text-lg mb-10 opacity-80">
+                <span class="text-earth-400 text-xs tracking-[0.2em] uppercase font-bold">Η Φωνη των Θεραπευομενων</span>
+                <h2 class="text-4xl md:text-6xl font-serif text-white mt-4 font-light leading-tight mb-8">Εμπειρίες<br><i class="text-earth-300">Αλλαγής</i></h2>
+                <div class="w-12 h-px bg-earth-400/50 mb-8"></div>
+                <p class="text-earth-200 font-light leading-relaxed text-lg mb-10 opacity-80">
                     Η ειλικρινής αποτύπωση της θεραπευτικής διαδρομής, μέσα από τα λόγια όσων με εμπιστεύτηκαν. Κάθε βήμα προς την αυτογνωσία αποτελεί μια προσωπική νίκη.
                 </p>
-                <div class="flex items-center gap-4 text-calm-300">
+                <div class="flex items-center gap-4 text-earth-300">
                     <div class="flex gap-1">
                         <i data-lucide="star" class="w-5 h-5 fill-current"></i>
                         <i data-lucide="star" class="w-5 h-5 fill-current"></i>
@@ -407,20 +407,20 @@
                             <div class="glass-panel p-10 rounded-xl hover:-translate-y-2 hover:bg-white/10 transition-all duration-500 cursor-default shadow-lg">
                                 <div class="flex justify-between items-start mb-6 border-b border-white/10 pb-6">
                                     <div class="flex items-center gap-3">
-                                        <div class="w-12 h-12 rounded-full bg-calm-800 flex items-center justify-center text-calm-300 font-serif text-xl border border-white/5">
+                                        <div class="w-12 h-12 rounded-full bg-earth-800 flex items-center justify-center text-earth-300 font-serif text-xl border border-white/5">
                                             ${review.name.charAt(0)}
                                         </div>
                                         <div>
                                             <p class="text-sm tracking-widest uppercase font-medium text-white mb-1">${review.name}</p>
-                                            <p class="text-xs text-calm-400 font-light">${review.date}</p>
+                                            <p class="text-xs text-earth-400 font-light">${review.date}</p>
                                         </div>
                                     </div>
                                     <div class="text-right">
-                                        <span class="font-serif text-2xl text-calm-200 block leading-none">${review.rating}</span>
-                                        <span class="text-[0.6rem] tracking-[0.2em] text-calm-400 uppercase mt-1 block">/ 10</span>
+                                        <span class="font-serif text-2xl text-earth-200 block leading-none">${review.rating}</span>
+                                        <span class="text-[0.6rem] tracking-[0.2em] text-earth-400 uppercase mt-1 block">/ 10</span>
                                     </div>
                                 </div>
-                                <p class="text-calm-100 text-sm md:text-base font-light italic leading-relaxed opacity-90">"${review.text}"</p>
+                                <p class="text-earth-100 text-sm md:text-base font-light italic leading-relaxed opacity-90">"${review.text}"</p>
                             </div>
                         `;
 
@@ -432,16 +432,16 @@
         </div>
     </section>
 
-    <footer id="contact" class="bg-calm-50 text-calm-900 pt-32 pb-12 relative overflow-hidden">
+    <footer id="contact" class="bg-earth-50 text-earth-900 pt-32 pb-12 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-6">
             
-            <div class="grid lg:grid-cols-2 gap-16 mb-24 pb-20 border-b border-calm-200">
+            <div class="grid lg:grid-cols-2 gap-16 mb-24 pb-20 border-b border-earth-200">
                 <div class="reveal">
                     <h2 class="text-5xl font-serif mb-6 font-light leading-tight">Ας Ξεκινήσουμε.</h2>
-                    <p class="text-calm-800 max-w-md mb-12 font-light leading-relaxed text-lg">
+                    <p class="text-earth-800 max-w-md mb-12 font-light leading-relaxed text-lg">
                         Η επούλωση ξεκινά με ένα βήμα. Επικοινωνήστε μαζί μας για να ορίσουμε την πρώτη σας συνεδρία σε ένα περιβάλλον απόλυτης αποδοχής.
                     </p>
-                    <a href="tel:+306939327802" class="inline-flex items-center justify-center bg-calm-900 text-calm-50 px-10 py-5 uppercase tracking-[0.2em] text-xs hover:bg-calm-400 transition-all duration-500 group shadow-lg hover:shadow-glow hover:-translate-y-1">
+                    <a href="tel:+306939327802" class="inline-flex items-center justify-center bg-earth-900 text-earth-50 px-10 py-5 uppercase tracking-[0.2em] text-xs hover:bg-earth-400 transition-all duration-500 group shadow-lg hover:shadow-glow hover:-translate-y-1">
                         Καλεστε Τωρα
                         <i data-lucide="arrow-up-right" class="w-4 h-4 ml-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
                     </a>
@@ -449,30 +449,34 @@
 
                 <div class="grid sm:grid-cols-2 gap-12 reveal delay-100">
                     <div>
-                        <h4 class="text-[0.65rem] tracking-[0.2em] text-calm-400 mb-8 uppercase font-bold">Επικοινωνια</h4>
-                        <ul class="space-y-8 font-light text-calm-800">
+                        <h4 class="text-[0.65rem] tracking-[0.2em] text-earth-400 mb-8 uppercase font-bold">Επικοινωνια</h4>
+                        <ul class="space-y-8 font-light text-earth-800">
                             <li>
-                                <span class="block text-calm-900 font-medium mb-1 text-sm uppercase tracking-widest">Διευθυνση</span>
+                                <span class="block text-earth-900 font-medium mb-1 text-sm uppercase tracking-widest">Διευθυνση</span>
                                 <span class="text-sm">Ολυμπίας 22, Γλυφάδα, Αττική</span>
                             </li>
                             <li>
-                                <span class="block text-calm-900 font-medium mb-1 text-sm uppercase tracking-widest">Τηλεφωνο</span>
-                                <a href="tel:+306939327802" class="text-sm hover:text-calm-400 transition-colors">+30 693 932 7802</a>
+                                <span class="block text-earth-900 font-medium mb-1 text-sm uppercase tracking-widest">Τηλεφωνο</span>
+                                <a href="tel:+306939327802" class="text-sm hover:text-earth-400 transition-colors">+30 693 932 7802</a>
                             </li>
                             <li>
-                                <span class="block text-calm-900 font-medium mb-2 text-sm uppercase tracking-widest">Δικτυα</span>
-                                <a href="https://www.linkedin.com/in/tatiana-batanian-2b77ab2a8/" target="_blank" class="inline-flex items-center justify-center w-10 h-10 rounded-full border border-calm-300 hover:bg-calm-900 hover:text-white transition-all duration-300">
-                                    <i data-lucide="linkedin" class="w-4 h-4"></i>
+                                <span class="block text-earth-900 font-medium mb-2 text-sm uppercase tracking-widest">Δικτυα</span>
+                                <a href="https://www.linkedin.com/in/tatiana-batanian-2b77ab2a8/" target="_blank" class="inline-flex items-center justify-center w-10 h-10 rounded-full border border-earth-300 hover:bg-earth-900 hover:text-white transition-all duration-300" aria-label="LinkedIn Profile">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                        <rect width="4" height="12" x="2" y="9"/>
+                                        <circle cx="4" cy="4" r="2"/>
+                                    </svg>
                                 </a>
                             </li>
                         </ul>
                     </div>
 
                     <div>
-                        <h4 class="text-[0.65rem] tracking-[0.2em] text-calm-400 mb-8 uppercase font-bold">Ωραριο</h4>
-                        <ul class="space-y-8 font-light text-calm-800">
+                        <h4 class="text-[0.65rem] tracking-[0.2em] text-earth-400 mb-8 uppercase font-bold">Ωραριο</h4>
+                        <ul class="space-y-8 font-light text-earth-800">
                             <li>
-                                <span class="block text-calm-900 font-medium mb-1 text-sm uppercase tracking-widest">Δευτερα - Σαββατο</span>
+                                <span class="block text-earth-900 font-medium mb-1 text-sm uppercase tracking-widest">Δευτερα - Σαββατο</span>
                                 <span class="text-sm italic">Κατόπιν Ραντεβού</span>
                             </li>
                         </ul>
@@ -480,10 +484,10 @@
                 </div>
             </div>
 
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-[0.65rem] tracking-[0.2em] text-calm-400 uppercase reveal delay-200">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-[0.65rem] tracking-[0.2em] text-earth-400 uppercase reveal delay-200">
                 <p>&copy; 2026 Τατιανα Μπατανιαν. Με επιφυλαξη παντος δικαιωματος.</p>
                 <p>
-                    Designed by <a href="https://advonmedia.com" target="_blank" class="text-calm-900 font-bold hover:text-calm-400 transition-colors">Advon Media</a>
+                    Designed by <a href="https://advonmedia.com" target="_blank" class="text-earth-900 font-bold hover:text-earth-400 transition-colors">Advon Media</a>
                 </p>
             </div>
 
