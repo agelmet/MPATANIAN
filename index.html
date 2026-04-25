@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="el" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Τατιάνα Μπατανιάν | Συστημική Συμβουλευτική & Αυτογνωσία</title>
+    <meta name="description" content="Η Τατιάνα Μπατανιάν είναι Σύμβουλος Ψυχικής Υγείας και Ειδικευόμενη Ψυχοθεραπεύτρια στη Γλυφάδα. Κατανοώντας τον Εαυτό μέσα από τις Σχέσεις.">
+    <meta name="author" content="Advon Media">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        calm: {
+                            50: '#faf9f8',
+                            100: '#f3f1ed',
+                            200: '#e5e1d8',
+                            300: '#d1c7bd', // Soft beige/taupe
+                            400: '#a9927d', // Warm taupe
+                            800: '#3a3f47', // Slate grey
+                            900: '#23262b', // Deep charcoal
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                        logo: ['Playfair Display', 'serif'],
+                    },
+                    boxShadow: {
+                        'elegant': '0 20px 40px -15px rgba(35, 38, 43, 0.08)',
+                        'float': '0 30px 60px -20px rgba(35, 38, 43, 0.15)',
+                    },
+                    animation: {
+                        'kenburns': 'kenburns 20s ease-out both',
+                        'float': 'float 8s ease-in-out infinite',
+                        'marquee': 'marquee 50s linear infinite',
+                        'fade-in-up': 'fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        kenburns: {
+                            '0%': { transform: 'scale(1.05)' },
+                            '100%': { transform: 'scale(1)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #faf9f8; color: #3a3f47; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #faf9f8; }
+        ::-webkit-scrollbar-thumb { background: #d1c7bd; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #a9927d; }
+
+        /* Reveal Logic */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Marquee Container */
+        .marquee-container { display: flex; width: max-content; }
+        .marquee-container:hover { animation-play-state: paused; }
+
+        /* Lightbox */
+        #lightbox { opacity: 0; pointer-events: none; transition: opacity 0.5s ease; backdrop-filter: blur(10px); }
+        #lightbox.active { opacity: 1; pointer-events: auto; }
+        #lightbox img { transform: scale(0.95); transition: transform 0.5s ease; }
+        #lightbox.active img { transform: scale(1); }
+
+        /* Glass / Blurs */
+        .glass-nav { background: rgba(250, 249, 248, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(209, 199, 189, 0.2); }
+        
+        /* Clean Button Hover */
+        .btn-primary { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 15px 30px -10px rgba(169, 146, 125, 0.4); }
+    </style>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="antialiased selection:bg-calm-300 selection:text-calm-900">
+
+    <nav class="fixed w-full z-50 transition-all duration-500 py-6" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="font-logo text-2xl md:text-3xl font-medium text-calm-900 tracking-wide hover:opacity-80 transition-opacity drop-shadow-sm flex flex-col group">
+                <i>Τατιάνα Μπατανιάν</i>
+                <span class="font-sans text-[0.6rem] uppercase tracking-[0.2em] text-calm-400 not-italic mt-1 group-hover:text-calm-800 transition-colors">Συμβουλος Ψυχικης Υγειας</span>
+            </a>
+            
+            <div class="hidden md:flex items-center space-x-10">
+                <a href="#about" class="text-sm font-medium tracking-wide hover:text-calm-400 transition-colors uppercase">Η Φιλοσοφία</a>
+                <a href="#services" class="text-sm font-medium tracking-wide hover:text-calm-400 transition-colors uppercase">Υπηρεσίες</a>
+                <a href="#space" class="text-sm font-medium tracking-wide hover:text-calm-400 transition-colors uppercase">Ο Χώρος</a>
+                <a href="#reviews" class="text-sm font-medium tracking-wide hover:text-calm-400 transition-colors uppercase">Εμπειρίες</a>
+                <a href="#contact" class="px-7 py-3 bg-calm-900 text-calm-50 rounded-none text-sm font-medium uppercase tracking-widest hover:bg-calm-400 btn-primary">Κλειστε Ραντεβου</a>
+            </div>
+
+            <button class="md:hidden text-calm-900 focus:outline-none" id="mobile-menu-btn">
+                <i data-lucide="menu" class="w-7 h-7"></i>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-calm-50/95 backdrop-blur-md shadow-elegant hidden flex-col items-center py-10 space-y-8 border-t border-calm-200">
+            <a href="#about" class="text-base tracking-widest uppercase font-medium mobile-link">Η Φιλοσοφία</a>
+            <a href="#services" class="text-base tracking-widest uppercase font-medium mobile-link">Υπηρεσίες</a>
+            <a href="#space" class="text-base tracking-widest uppercase font-medium mobile-link">Ο Χώρος</a>
+            <a href="#reviews" class="text-base tracking-widest uppercase font-medium mobile-link">Εμπειρίες</a>
+            <a href="#contact" class="px-8 py-4 bg-calm-900 text-calm-50 rounded-none text-sm uppercase tracking-widest mobile-link">Κλειστε Ραντεβου</a>
+        </div>
+    </nav>
+
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="w-full h-full bg-cover bg-center animate-kenburns origin-center" style="background-image: url('https://github.com/agelmet/ZERVA/blob/main/s2.jpg?raw=true');"></div>
+            <div class="absolute inset-0 bg-calm-900/60 backdrop-blur-[2px]"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-calm-900/40 to-calm-50"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto flex flex-col items-center mt-16">
+            <span class="block text-calm-200 text-xs md:text-sm tracking-[0.3em] uppercase mb-6 reveal">Συστημικη Συμβουλευτικη & Αυτογνωσια</span>
+            <h1 class="text-5xl md:text-7xl font-serif text-white leading-tight mb-8 drop-shadow-lg reveal delay-100 font-light">
+                Κατανοώντας τον Εαυτό <br>
+                <i class="font-logo text-calm-200 text-6xl md:text-8xl block mt-2">μέσα από τις Σχέσεις</i>
+            </h1>
+            <div class="w-px h-16 bg-calm-300/50 mb-10 reveal delay-200"></div>
+            <a href="#contact" class="px-10 py-4 border border-calm-200 text-white rounded-none tracking-widest uppercase text-sm hover:bg-calm-50 hover:text-calm-900 transition-all duration-500 reveal delay-300 backdrop-blur-sm">
+                Ξεκινώνταs τη Διαδρομή
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="py-32 px-6 bg-calm-50 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+                
+                <div class="lg:col-span-5 relative reveal">
+                    <div class="aspect-[3/4] overflow-hidden rounded-sm shadow-float relative animate-float">
+                        <img src="https://cdn.doctoranytime.gr/profileimages/e28f5501-8e27-4f3a-ba99-27b40ebc1f68.webp" alt="Τατιάνα Μπατανιάν" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 border border-calm-300/30 m-4 rounded-sm pointer-events-none"></div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 reveal delay-100">
+                    <h2 class="text-4xl font-serif text-calm-900 mb-8 font-light">Η Τατιάνα Μπατανιάν είναι Σύμβουλος Ψυχικής Υγείας και Ειδικευόμενη Ψυχοθεραπεύτρια, διατηρώντας το ιδιωτικό της γραφείο στη Γλυφάδα.</h2>
+                    
+                    <div class="space-y-6 text-calm-800 font-light leading-relaxed">
+                        <p>
+                            Διαθέτει ένα ευρύ και ανθρωποκεντρικό ακαδημαϊκό υπόβαθρο: σπούδασε Κοινωνιολογία στο Πανεπιστήμιο της Κρήτης, αποκτώντας τη δεξιότητα να κατανοεί τον άνθρωπο όχι ως απομονωμένη μονάδα, αλλά ως μέρος ενός ευρύτερου κοινωνικού συνόλου.
+                        </p>
+                        <p>
+                            Στη συνέχεια, ολοκλήρωσε το εντατικό τριετές πρόγραμμα Συμβουλευτικής Ψυχικής Υγείας στο Κ.Ε.ΨΥ.ΣΥ. και, επί του παρόντος, ειδικεύεται στη Συστημική Οικογενειακή Θεραπεία (Κε.Συ.Θε.Σ.), μέσα από ένα αυστηρό τετραετές πρόγραμμα πιστοποιημένο από την Ευρωπαϊκή Εταιρία Οικογενειακής Θεραπείας (EFTA). Είναι τακτικό μέλος της Ελληνικής Εταιρείας Συμβουλευτικής (Ε.Ε.Σ.) και της European Association for Counselling (E.A.C.).
+                        </p>
+                        <p>
+                            Στην κλινική της πρακτική, η βάση είναι η Συστημική προσέγγιση, την οποία όμως εμπλουτίζει με πρακτικά εργαλεία από τη Γνωσιακή Συμπεριφορική (CBT) και τη Gestalt. Στο γραφείο της αναλαμβάνει ενήλικες, προσφέροντας έναν ασφαλή χώρο για τη διαχείριση του άγχους, των φοβιών και τη βελτίωση των διαπροσωπικών σχέσεων.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-32">
+                <div class="text-center mb-16 reveal">
+                    <span class="text-calm-400 text-xs tracking-[0.2em] uppercase">Ο Χαρτης της Αλλαγης Σας</span>
+                    <h3 class="text-3xl font-serif text-calm-900 mt-3">Η Θεραπευτική μου Φιλοσοφία</h3>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-10 shadow-elegant border border-calm-100 reveal">
+                        <i data-lucide="network" class="w-8 h-8 text-calm-300 mb-6"></i>
+                        <h4 class="text-xl font-serif text-calm-900 mb-4">Η Κοινωνιολογική Οπτική</h4>
+                        <p class="text-sm text-calm-800 leading-relaxed font-light">Οι σπουδές μου στην Κοινωνιολογία μού επιτρέπουν να βλέπω τη "μεγάλη εικόνα". Κατανοώ ότι τα προβλήματα που βιώνετε δεν αποτελούν δική σας, ατομική «αποτυχία», αλλά συχνά είναι αποτέλεσμα των πιέσεων του περιβάλλοντος, της οικογένειας και των κοινωνικών προσδοκιών.</p>
+                    </div>
+                    
+                    <div class="bg-white p-10 shadow-elegant border border-calm-100 reveal delay-100">
+                        <i data-lucide="git-merge" class="w-8 h-8 text-calm-300 mb-6"></i>
+                        <h4 class="text-xl font-serif text-calm-900 mb-4">Συστημική Σκέψη με Πρακτική Ευελιξία</h4>
+                        <p class="text-sm text-calm-800 leading-relaxed font-light">Βλέπω τον άνθρωπο ως μέρος ενός συστήματος. Δανείζομαι τεχνικές από τη CBT (για άμεση διαχείριση των σκέψεων) και τη Gestalt (για εστίαση στο συναίσθημα και το "εδώ και τώρα"), δημιουργώντας μια θεραπεία κομμένη και ραμμένη στα μέτρα σας.</p>
+                    </div>
+
+                    <div class="bg-white p-10 shadow-elegant border border-calm-100 reveal">
+                        <i data-lucide="eye" class="w-8 h-8 text-calm-300 mb-6"></i>
+                        <h4 class="text-xl font-serif text-calm-900 mb-4">Η Δική μου Θεραπευτική Διαδρομή</h4>
+                        <p class="text-sm text-calm-800 leading-relaxed font-light">Η συνεχή προσωπική μου ψυχοθεραπεία και η κλινική μου εποπτεία αποτελούν τον ακρογωνιαίο λίθο του επαγγελματισμού μου. Σας εγγυώμαι έναν χώρο καθαρό από τις δικές μου προβολές.</p>
+                    </div>
+
+                    <div class="bg-white p-10 shadow-elegant border border-calm-100 reveal delay-100">
+                        <i data-lucide="heart-handshake" class="w-8 h-8 text-calm-300 mb-6"></i>
+                        <h4 class="text-xl font-serif text-calm-900 mb-4">Η Σχέση ως Εργαλείο Ίασης</h4>
+                        <p class="text-sm text-calm-800 leading-relaxed font-light">Πάνω από κάθε πτυχίο, το πιο ισχυρό εργαλείο αλλαγής είναι η μεταξύ μας εμπιστοσύνη. Στόχος μου είναι να νιώσετε άμεσα πως βρίσκεστε σε ένα περιβάλλον απόλυτης αποδοχής, όπου μπορείτε να είστε 100% ο αληθινός σας εαυτός.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-32 px-6 bg-calm-900 text-calm-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-20 md:flex md:justify-between md:items-end reveal">
+                <div class="max-w-2xl">
+                    <span class="text-calm-400 text-xs tracking-[0.2em] uppercase">Εξειδικευμενες Προσεγγισεις</span>
+                    <h2 class="text-4xl md:text-5xl font-serif mt-4 font-light">Υπηρεσίες</h2>
+                </div>
+                <div class="mt-8 md:mt-0">
+                    <a href="#contact" class="text-sm tracking-widest uppercase hover:text-calm-300 transition-colors border-b border-calm-400 pb-1 flex items-center gap-2">
+                        Προγραμματισμός Συνεδρίας <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div class="p-10 border border-calm-800 hover:bg-calm-800/50 transition-colors duration-500 reveal">
+                    <div class="flex items-center gap-3 text-calm-300 mb-6">
+                        <i data-lucide="users" class="w-6 h-6"></i>
+                        <span class="text-xs tracking-widest uppercase">Διαπροσωπικες Σχεσεις</span>
+                    </div>
+                    <h3 class="text-2xl font-serif mb-4">Συστημική Συμβουλευτική</h3>
+                    <p class="text-calm-200 font-light text-sm leading-relaxed mb-6">
+                        Η Συστημική προσέγγιση εστιάζει στις αλληλεπιδράσεις. Οι δυσκολίες στις σχέσεις μας συχνά πηγάζουν από μοτίβα επικοινωνίας του παρελθόντος. Δουλεύουμε μαζί για να αναγνωρίσουμε αυτούς τους ρόλους, να βελτιώσουμε τα όριά σας και να καλλιεργήσουμε πιο υγιείς, αυθεντικούς δεσμούς.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[0.7rem] uppercase tracking-wider px-3 py-1 bg-calm-800 text-calm-300">Προσωπική Ανάπτυξη</span>
+                        <span class="text-[0.7rem] uppercase tracking-wider px-3 py-1 bg-calm-800 text-calm-300">Προβλήματα Σχέσεων</span>
+                    </div>
+                </div>
+
+                <div class="p-10 border border-calm-800 hover:bg-calm-800/50 transition-colors duration-500 reveal delay-100">
+                    <div class="flex items-center gap-3 text-calm-300 mb-6">
+                        <i data-lucide="activity" class="w-6 h-6"></i>
+                        <span class="text-xs tracking-widest uppercase">Διαχειριση Κρισεων</span>
+                    </div>
+                    <h3 class="text-2xl font-serif mb-4">Άγχος, Φοβίες & Ψυχοσωματικά</h3>
+                    <p class="text-calm-200 font-light text-sm leading-relaxed mb-6">
+                        Όταν το άγχος παραμένει ανείπωτο, το σώμα μιλάει. Συνδυάζοντας τη συστημική ματιά με τεχνικές CBT και Gestalt, εντοπίζουμε τις ρίζες του χρόνιου στρες. Μαθαίνετε πρακτικούς τρόπους για να αποφορτίζετε το νευρικό σας σύστημα, ανακτώντας την ηρεμία σας.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[0.7rem] uppercase tracking-wider px-3 py-1 bg-calm-800 text-calm-300">Διαχείριση Φοβιών</span>
+                        <span class="text-[0.7rem] uppercase tracking-wider px-3 py-1 bg-calm-800 text-calm-300">Συνεδρία 50'</span>
+                    </div>
+                </div>
+
+                <div class="p-10 border border-calm-800 hover:bg-calm-800/50 transition-colors duration-500 reveal">
+                    <div class="flex items-center gap-3 text-calm-300 mb-6">
+                        <i data-lucide="compass" class="w-6 h-6"></i>
+                        <span class="text-xs tracking-widest uppercase">Μεταβασεις Ζωης</span>
+                    </div>
+                    <h3 class="text-2xl font-serif mb-4">Αυτοβελτίωση, Πένθος & Καριέρα</h3>
+                    <p class="text-calm-200 font-light text-sm leading-relaxed mb-6">
+                        Εξειδικευμένη συμβουλευτική για τη διαχείριση της απώλειας σε ένα απόλυτα ζεστό περιβάλλον. Παράλληλα, προσφέρεται καθοδήγηση για θέματα επαγγελματικού προσανατολισμού, βοηθώντας σας να πάρετε αποφάσεις που ευθυγραμμίζονται με τις αξίες σας.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[0.7rem] uppercase tracking-wider px-3 py-1 bg-calm-800 text-calm-300">Διαχείριση Πένθους</span>
+                        <span class="text-[0.7rem] uppercase tracking-wider px-3 py-1 bg-calm-800 text-calm-300">Επαγγελματικός Προσανατολισμός</span>
+                    </div>
+                </div>
+
+                <div class="p-10 border border-calm-800 hover:bg-calm-800/50 transition-colors duration-500 reveal delay-100">
+                    <div class="flex items-center gap-3 text-calm-300 mb-6">
+                        <i data-lucide="laptop" class="w-6 h-6"></i>
+                        <span class="text-xs tracking-widest uppercase">Ευελιξια</span>
+                    </div>
+                    <h3 class="text-2xl font-serif mb-4">Συνεδρίες Γλυφάδα & Online</h3>
+                    <p class="text-calm-200 font-light text-sm leading-relaxed mb-6">
+                        Προσαρμογή στις απαιτήσεις του σύγχρονου τρόπου ζωής. Οι συνεδρίες διάρκειας 50 λεπτών πραγματοποιούνται είτε δια ζώσης στον φιλόξενο χώρο μας στη Γλυφάδα, είτε εξ αποστάσεως (online), με την ίδια ποιότητα και εχεμύθεια.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[0.7rem] uppercase tracking-wider px-3 py-1 bg-calm-800 text-calm-300">Δια Ζώσης</span>
+                        <span class="text-[0.7rem] uppercase tracking-wider px-3 py-1 bg-calm-800 text-calm-300">Βιντεοκλήση</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="space" class="py-32 px-6 bg-calm-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 reveal">
+                <span class="text-calm-400 text-xs tracking-[0.2em] uppercase">Γλυφαδα, Αττικη</span>
+                <h2 class="text-4xl md:text-5xl font-serif text-calm-900 mt-4 font-light">Ο Χώρος Μας</h2>
+                <p class="text-calm-800 mt-6 max-w-2xl mx-auto font-light">Ένα περιβάλλον σχεδιασμένο να αποπνέει ηρεμία, ζεστασιά και ιδιωτικότητα.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="group relative overflow-hidden bg-calm-100 reveal cursor-zoom-in" onclick="openLightbox('https://github.com/agelmet/ZERVA/blob/main/s2.jpg?raw=true')">
+                    <img src="https://github.com/agelmet/ZERVA/blob/main/s2.jpg?raw=true" alt="Χώρος Γραφείου 1" class="w-full h-[500px] object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-calm-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                        <i data-lucide="maximize" class="w-8 h-8 text-white drop-shadow-md"></i>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden bg-calm-100 reveal delay-100 cursor-zoom-in" onclick="openLightbox('https://github.com/agelmet/ZERVA/blob/main/s3.jpg?raw=true')">
+                    <img src="https://github.com/agelmet/ZERVA/blob/main/s3.jpg?raw=true" alt="Χώρος Γραφείου 2" class="w-full h-[500px] object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-calm-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                        <i data-lucide="maximize" class="w-8 h-8 text-white drop-shadow-md"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-calm-900/95 flex items-center justify-center cursor-zoom-out" onclick="closeLightbox()">
+        <button class="absolute top-8 right-8 text-calm-300 hover:text-white transition-colors">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="Full Screen Image" class="max-w-[90vw] max-h-[90vh] object-contain shadow-2xl cursor-default" onclick="event.stopPropagation()">
+    </div>
+
+    <section id="reviews" class="py-32 bg-white overflow-hidden border-t border-calm-100">
+        <div class="max-w-7xl mx-auto px-6 mb-20 text-center reveal">
+            <span class="text-calm-400 text-xs tracking-[0.2em] uppercase">Μαρτυριες</span>
+            <h2 class="text-4xl md:text-5xl font-serif text-calm-900 mt-4 font-light">Εμπειρίες Θεραπευόμενων</h2>
+        </div>
+
+        <div class="w-full relative pb-10 flex overflow-hidden">
+            <div class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10"></div>
+            <div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10"></div>
+            
+            <div class="marquee-container animate-marquee flex space-x-6 px-3">
+                <script>
+                    const reviews = [
+                        { rating: '10.0', text: 'Με εντυπωσίασε ο τρόπος που προσέγγισε το θέμα μου με κατανόηση, ηρεμία και απόλυτη συνέπεια. Έδειξε υπέροχη ενσυναίσθηση.', name: 'Maria', date: '27 Νοεμβρίου 2025' },
+                        { rating: '9.6', text: 'Με βοήθησε πολυ να διαχειριστώ μια δυσκολη κατάσταση που βιωνα. Καταφερα να εκλογικεύσω την σκέψη μου και να τα ξαναβρώ με τον εαυτο μου.', name: 'Ντενίς', date: '26 Νοεμβρίου 2025' },
+                        { rating: '10.0', text: 'Εξαιρετικη συμβουλης ψυχικης βοηθειας με ορθη καθοδήγηση και συνεπης στα ραντεβου της.', name: 'Thelma', date: '26 Νοεμβρίου 2025' },
+                        { rating: '10.0', text: 'Εξαιρετική επαγγελματίας! Ο μόνος άνθρωπος μέχρι στιγμής που με βοήθησε να αλλάξω τον τρόπο σκέψης μου!', name: 'Alexia', date: '27 Νοεμβρίου 2024' },
+                        { rating: '10.0', text: 'Είναι μια άψογη επαγγελματίας, αλλά πάνω απ’ολα ένας άνθρωπος με Α κεφαλαίο. Με βοήθησε αρκετά με τις κρίσεις άγχους.', name: 'Dio', date: '13 Νοεμβρίου 2024' },
+                        { rating: '10.0', text: 'Ένιωσα οικεία απο τα πρώτα κιόλας λεπτά με αποτέλεσμα να μπορέσω να εκφραστώ όπως ακριβώς ήθελα, σαν να μιλάω σε δικό μου άνθρωπο.', name: 'Leonidas', date: '12 Νοεμβρίου 2024' },
+                        { rating: '10.0', text: 'Εξαιρετική επαγγελματίας με ενσυναίσθηση και ήθος!!', name: 'IOANNA', date: '12 Νοεμβρίου 2024' },
+                        { rating: '10.0', text: 'Η πιο αξιολογη επαγγελματιας που με ανελαβε, με ακουγε με απολυτη προσοχη και ενιωσα οτι με νοιαστηκε. Τη συστηνω 100%.', name: 'Thalia', date: '12 Νοεμβρίου 2024' },
+                        { rating: '10.0', text: 'Από την πρώτη συνάντηση, κέρδισε την εμπιστοσύνη μου με την προσοχή... Ενέπνευσε σιγουριά και ασφάλεια.', name: 'Τεα', date: '12 Νοεμβρίου 2024' },
+                        { rating: '10.0', text: 'Άριστη προσέγγιση και εξαιρετική βοήθεια στις συνεδρίες.', name: 'Δημήτρης', date: '16 Μαΐου 2025' }
+                    ];
+
+                    const createReviewCard = (review) => `
+                        <div class="w-[350px] bg-calm-50 p-10 shadow-sm border border-calm-100 shrink-0">
+                            <div class="flex justify-between items-start mb-6">
+                                <div>
+                                    <div class="flex items-center gap-1 text-calm-400 mb-2">
+                                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    </div>
+                                    <span class="font-serif text-xl text-calm-900">${review.rating} / 10</span>
+                                </div>
+                            </div>
+                            <p class="text-calm-800 text-sm mb-8 font-light italic leading-relaxed">"${review.text}"</p>
+                            <div class="border-t border-calm-200 pt-4">
+                                <p class="text-xs tracking-widest uppercase font-medium text-calm-900 mb-1">${review.name}</p>
+                                <p class="text-xs text-calm-400">${review.date}</p>
+                            </div>
+                        </div>
+                    `;
+
+                    // Generate twice to loop smoothly
+                    document.write([...reviews, ...reviews].map(createReviewCard).join(''));
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-calm-900 text-white pt-24 pb-12 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="grid lg:grid-cols-2 gap-16 mb-20 pb-20 border-b border-calm-800">
+                <div class="reveal">
+                    <h2 class="text-4xl font-serif mb-6 font-light">Ας Ξεκινήσουμε.</h2>
+                    <p class="text-calm-300 max-w-md mb-10 font-light leading-relaxed">
+                        Η επούλωση ξεκινά με ένα βήμα. Επικοινωνήστε μαζί μας για να ορίσουμε την πρώτη σας συνεδρία σε ένα περιβάλλον απόλυτης αποδοχής.
+                    </p>
+                    <a href="tel:+306939327802" class="inline-flex items-center justify-center bg-calm-50 text-calm-900 px-8 py-4 uppercase tracking-widest text-sm hover:bg-calm-300 transition-colors duration-300 group">
+                        Καλεστε Τωρα
+                        <i data-lucide="arrow-up-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-10 reveal delay-100">
+                    <div>
+                        <h4 class="text-xs tracking-widest text-calm-400 mb-6 uppercase">Επικοινωνια</h4>
+                        <ul class="space-y-6 font-light text-calm-200">
+                            <li>
+                                <span class="block text-white mb-1">Διεύθυνση</span>
+                                Ολυμπίας 22, Γλυφάδα, Αττική
+                            </li>
+                            <li>
+                                <span class="block text-white mb-1">Τηλέφωνο</span>
+                                <a href="tel:+306939327802" class="hover:text-calm-400 transition-colors">+30 693 932 7802</a>
+                            </li>
+                            <li>
+                                <span class="block text-white mb-1">LinkedIn</span>
+                                <a href="https://www.linkedin.com/in/tatiana-batanian-2b77ab2a8/" target="_blank" class="inline-flex items-center gap-2 hover:text-calm-400 transition-colors mt-1">
+                                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                                    Προφίλ
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xs tracking-widest text-calm-400 mb-6 uppercase">Ωραριο</h4>
+                        <ul class="space-y-6 font-light text-calm-200">
+                            <li>
+                                <span class="block text-white mb-1">Δευτέρα - Σάββατο</span>
+                                Κατόπιν Ραντεβού
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs tracking-widest text-calm-400 uppercase reveal delay-200">
+                <p>&copy; 2026 Τατιανα Μπατανιαν.</p>
+                <p>
+                    Designed by <a href="https://advonmedia.com" target="_blank" class="text-white hover:text-calm-300 transition-colors">Advon Media</a>
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        // 1. Initialize Icons
+        lucide.createIcons();
+
+        // 2. Mobile Menu
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+            });
+        });
+
+        // 3. Navbar Scrolled State
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('glass-nav', 'py-4');
+                navbar.classList.remove('py-6');
+            } else {
+                navbar.classList.remove('glass-nav', 'py-4');
+                navbar.classList.add('py-6');
+            }
+        });
+
+        // 4. Scroll Reveal (Intersection Observer)
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { root: null, rootMargin: '0px', threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // 5. Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        function openLightbox(src) {
+            lightboxImg.src = src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            setTimeout(() => {
+                lightboxImg.src = '';
+                document.body.style.overflow = '';
+            }, 500);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
